@@ -1,4 +1,7 @@
 from datetime import datetime
+"""
+Creates and structures events that get created by the simulator
+"""
 class Event:
     def __init__(self, event_type, user, ip_address, event_details):
 
@@ -6,7 +9,7 @@ class Event:
         self.event_type = event_type.upper()
         self.user = user.lower()
         self.ip_address = ip_address
-        self.event_details = event_details
+        self.event_details = event_details # not upper or lower: need all the information as it comes.
     
     def __str__(self):
         return f"{self.timestamp} {self.event_type} user={self.user} ip={self.ip_address} details={self.event_details}"
@@ -26,5 +29,5 @@ event2 = Event(
     ip_address= "10.200.131.93",
 )
 
-print(event)
-print(event2)
+# print(event)
+# print(event2)
