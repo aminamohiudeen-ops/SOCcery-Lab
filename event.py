@@ -15,19 +15,19 @@ class Event:
         return f"{self.timestamp} {self.event_type} user={self.user} ip={self.ip_address} details={self.event_details}"
 
 # print(date_time) 
-event = Event(
-    event_type= "Successful login",
-    event_details= "information",
-    user= "Amina Mohiudeen",
-    ip_address= "10.200.131.93",   
-)
+# event = Event(
+#     event_type= "Successful login",
+#     event_details= "information",
+#     user= "Amina Mohiudeen",
+#     ip_address= "10.200.131.93",   
+# )
 
-event2 = Event(
-    event_type= "file accsess",
-    event_details= "information",
-    user = "Amina",
-    ip_address= "10.200.131.93",
-)
+# event2 = Event(
+#     event_type= "file accsess",
+#     event_details= "information",
+#     user = "Amina",
+#     ip_address= "10.200.131.93",
+# )
 
 # print(event)
 # print(event2)
