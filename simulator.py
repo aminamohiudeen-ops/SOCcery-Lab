@@ -9,6 +9,7 @@ normal_event_types = [
     "FILE_ACCESS",
     "SQL_QUERY"
 ]
+
 def randomize_event():
     random_event = random.choice(normal_event_types)
     return random_event
@@ -16,6 +17,7 @@ def randomize_event():
 users = [
     "AMINA MOHIUDEEN"
 ]
+
 def randomize_user():
     random_user = random.choice(users)
     return random_user
