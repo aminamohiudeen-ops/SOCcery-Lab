@@ -21,11 +21,17 @@ def randomize_user():
     return random_user
 
 
-def ip_generator():
+def ip_list_generator():
     network = ipaddress.ip_network("10.200.131.0/24")
-    random_ip = random.choice(list(network.hosts()))
-    return random_ip
+    # random_ip = random.choice(list(network.hosts()))
+    ip_list = list(network.hosts())
+    return ip_list
 
+def ip_generator():
+    hosts = ip_list_generator()
+    hosts_range = hosts[:10]
+    random_ip = random.choice(hosts_range)
+    return random_ip
 
 
 def event_simulation():
