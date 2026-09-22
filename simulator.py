@@ -9,14 +9,40 @@ normal_event_types = [
     "FILE_ACCESS",
     "SQL_QUERY"
 ]
+normal_event_details = {
+    "LOGIN_SUCCESS": [
+        "successful login",
+        "user authenticated",
+        "login accepted"
+    ],
+
+    "LOGIN_FAILURE": [
+        "incorrect password",
+        "invalid credentials",
+        "authentication failed"
+    ],
+
+    "FILE_ACCESS": [
+        "opened payroll.xlsx",
+        "accessed report.pdf",
+        "read employee_data.csv"
+    ],
+
+    "SQL_QUERY": [
+        "SELECT * FROM users",
+        "SELECT * FROM transactions",
+        "SELECT username FROM accounts"
+    ]
+}
+users = [
+    "AMINA MOHIUDEEN"
+]
 
 def randomize_event():
     random_event = random.choice(normal_event_types)
     return random_event
 
-users = [
-    "AMINA MOHIUDEEN"
-]
+
 
 def randomize_user():
     random_user = random.choice(users)
@@ -35,11 +61,17 @@ def ip_generator():
     random_ip = random.choice(hosts_range)
     return random_ip
 
+def randomize_event_details(event_type):
+
+    if event_type in normal_event_details:
+        details = normal_event_details[event_type]
+        return random.choice(details)
 
 def event_simulation():
+    eventType = randomize_event()
     event = Event(
-    event_type= randomize_event(),
-    event_details= "information",
+    event_type= eventType,
+    event_details= randomize_event_details(eventType),
     user= randomize_user(),
     ip_address= ip_generator(),)
     return event
