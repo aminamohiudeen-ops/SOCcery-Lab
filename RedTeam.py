@@ -26,20 +26,23 @@ attempts = int(input("Input the amount of attempts:"))
 user = randomize_user()
 ip_address = ip_generator()
 def brute_force(user, ip_address, attempts):
-    brute_list = []
+    # brute_list = []
 
-    while len(brute_list) < attempts:
+    while attempts > 0:
+        # while len(brute_list) < attempts:
         brute_event = Event(
         event_type= "LOGIN_FAILURE",
         event_details= "",
         user= user,
         ip_address= ip_address,)
-        
-        brute_list.append(brute_event)
+
+        yield brute_event
+        attempts -= 1
+        # brute_list.append(brute_event)
 
         time.sleep(1)    
 
-    return brute_list
+    # return brute_list
     
 for event in brute_force(user, ip_address, attempts):
     print(event)
