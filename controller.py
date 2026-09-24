@@ -1,16 +1,19 @@
+from event import Event
 from queue import Queue
 
 event_queue = Queue()
 
-event_queue.put("hello")
-event_queue.put("helo")
-event_queue.put("hellllo")
-event_queue.put("helllllllllllo")
-event_queue.put("Hello")
-event_queue.put("heillo")
-event_queue.put("Bye")
+test_event = Event(
+    event_type="LOGIN_SUCCESS",
+    user="AMINA MOHIUDEEN",
+    ip_address="10.200.131.10",
+    event_details="successful login"
+)
 
-while not event_queue.empty():
-    event = event_queue.get()
-    queue = event_queue.queue
-    print(queue)
+event_queue.put(test_event)
+event = event_queue.get()
+
+queue = event_queue.queue
+
+print(queue)
+print(event)
