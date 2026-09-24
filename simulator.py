@@ -76,10 +76,15 @@ def event_simulation():
 
     return event
 
-inital_event = event_simulation() 
-# print(inital_event)
+# inital_event = event_simulation() 
+# # print(inital_event)
 
-while True:
-    event = event_simulation()
-    print(event)
-    time.sleep(1)
+# def run_simulation():
+#     while True:
+#         event = event_simulation()
+#         print(event)
+#         time.sleep(1)
+
+# if __name__ == "__main__":
+#     run_simulation()
+
