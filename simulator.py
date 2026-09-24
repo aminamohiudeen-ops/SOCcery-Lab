@@ -1,7 +1,7 @@
 from event import Event
 import random
 import ipaddress
-
+import time
 
 normal_event_types = [
     "LOGIN_SUCCESS",
@@ -9,6 +9,7 @@ normal_event_types = [
     "FILE_ACCESS",
     "SQL_QUERY"
 ]
+
 normal_event_details = {
     "LOGIN_SUCCESS": [
         "successful login",
@@ -34,6 +35,7 @@ normal_event_details = {
         "SELECT username FROM accounts"
     ]
 }
+
 users = [
     "AMINA MOHIUDEEN"
 ]
@@ -42,12 +44,9 @@ def randomize_event():
     random_event = random.choice(normal_event_types)
     return random_event
 
-
-
 def randomize_user():
     random_user = random.choice(users)
     return random_user
-
 
 def ip_list_generator():
     network = ipaddress.ip_network("10.200.131.0/24")
@@ -74,8 +73,13 @@ def event_simulation():
     event_details= randomize_event_details(eventType),
     user= randomize_user(),
     ip_address= ip_generator(),)
+
     return event
 
-inital_event = event_simulation()
-print(inital_event)
+inital_event = event_simulation() 
+# print(inital_event)
 
+while True:
+    event = event_simulation()
+    print(event)
+    time.sleep(1)
