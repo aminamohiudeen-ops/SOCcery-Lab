@@ -22,10 +22,9 @@ def ip_generator():
     random_ip = random.choice(hosts_range)
     return random_ip
 
-attempts = int(input("Input the amount of attempts:"))
-user = randomize_user()
-ip_address = ip_generator()
-def brute_force(user, ip_address, attempts):
+
+def brute_force(user, ip_address):
+    attempts = int(input("Input the amount of attempts:"))
     # brute_list = []
 
     while attempts > 0:
@@ -40,9 +39,14 @@ def brute_force(user, ip_address, attempts):
         attempts -= 1
         # brute_list.append(brute_event)
 
-        time.sleep(1)    
+        time.sleep(0.5)    
 
     # return brute_list
     
-for event in brute_force(user, ip_address, attempts):
-    print(event)
+
+
+if __name__ == "__main__":
+    user = randomize_user()
+    ip_address = ip_generator()
+    for event in brute_force(user, ip_address):
+        print(event)

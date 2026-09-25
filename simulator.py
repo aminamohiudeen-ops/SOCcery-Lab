@@ -2,6 +2,8 @@ from event import Event
 import random
 import ipaddress
 import time
+import threading
+from event_queue import add_event
 
 normal_event_types = [
     "LOGIN_SUCCESS",
@@ -87,4 +89,33 @@ def event_simulation():
 
 # if __name__ == "__main__":
 #     run_simulation()
+
+def route_event(event):
+    add_event(event)
+
+
+def run_simulator():
+
+    while True:
+        event = event_simulation()
+        route_event(event)
+        time.sleep(3)
+
+# run_simulator()
+
+
+
+def start_simulator():
+
+    simulator_thread = threading.Thread(
+        target=run_simulator,
+        daemon=True
+    )
+
+    simulator_thread.start()
+
+
+
+# start_simulator()
+
 
