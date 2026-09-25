@@ -56,8 +56,8 @@ def start_simulator():
 
 # start_simulator()
 
-def json_converter():
-    event = event_simulation()
+def json_converter(event):
+    
     event_dict = convert_event(event)
     json_event = json.dumps(event_dict)
 
@@ -75,6 +75,9 @@ def start_server_cxn():
     print("Waiting for Blue Team...")
     connection, address = server_socket.accept()
     print("Blue Team connected:", address)
+    event = event_simulation()
+    json_event = json_converter(event)
+    connection.sendall(json_event.encode())
 
     return connection
 
