@@ -1,0 +1,13 @@
+
+SECURITY INCIDENT REPORT
+
+Alert Type: BRUTE_FORCE
+User: amina mohiudeen
+Source IP: 10.200.131.8
+Failed Attempts: 10
+
+Analysis:
+A possible brute-force attack was detected.
+Multiple failed login attempts were made against the same user
+from the same source IP within a short period of time.
+
