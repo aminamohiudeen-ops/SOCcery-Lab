@@ -60,7 +60,7 @@ def brute_force_detection(event):
             f"Failed attempts: {len(matching_failures) + 1}\n \n \n"
         )
         
-        alert = brute_force_alert(event)  #this is suppsoed to be sent to purple team and not printed change it in the function
+        alert = brute_force_alert(event)  
         receive_alert(alert)
 
 
